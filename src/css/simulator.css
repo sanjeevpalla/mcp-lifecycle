@@ -1,0 +1,81 @@
+/* This page's original palette used a slightly warmer ink/bg/line than the
+   other pages' shared tokens — override just those here. */
+:root {
+  --ink: #22262b;
+  --bg: #fafaf8;
+  --line: #e5e7eb;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+header {
+  padding: 28px 32px 18px; border-bottom: 2px solid var(--ink);
+}
+header h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.3px; }
+header p { margin: 0; color: var(--sub); font-family: -apple-system, sans-serif; font-size: 14px; }
+
+.layout { display: grid; grid-template-columns: 1fr 340px; gap: 0; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+
+.stage { padding: 24px 32px; }
+
+.controls { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; font-family: -apple-system, sans-serif; }
+button {
+  font-family: -apple-system, sans-serif; font-size: 13px; font-weight: 600;
+  padding: 9px 16px; border-radius: 3px; border: 1.5px solid var(--ink);
+  background: var(--ink); color: #fff; cursor: pointer;
+}
+button.secondary { background: #fff; color: var(--ink); }
+button:disabled { opacity: 0.35; cursor: default; }
+.phase-badge {
+  font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 4px 10px; border-radius: 999px; border: 1.5px solid;
+}
+.phase-init { color: var(--amber); background: var(--amber-bg); border-color: var(--amber-bd); }
+.phase-operation { color: var(--teal); background: var(--teal-bg); border-color: var(--teal-bd); }
+.phase-shutdown { color: var(--lav); background: var(--lav-bg); border-color: var(--lav-bd); }
+
+.rails { display: flex; justify-content: space-between; font-family: -apple-system, sans-serif;
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--sub); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 14px; }
+
+.log { display: flex; flex-direction: column; gap: 10px; min-height: 420px; }
+.msg {
+  max-width: 78%; opacity: 0; transform: translateY(6px);
+  animation: in 0.35s ease forwards;
+  border-radius: 4px; border: 1.5px solid; padding: 10px 14px; cursor: pointer;
+}
+@keyframes in { to { opacity: 1; transform: translateY(0); } }
+.msg.client { align-self: flex-start; background: var(--amber-bg); border-color: var(--amber-bd); }
+.msg.server { align-self: flex-end; background: var(--teal-bg); border-color: var(--teal-bd); }
+.msg.event { align-self: center; background: var(--lav-bg); border-color: var(--lav-bd); font-style: italic; }
+.msg .lbl { font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.4px; margin-bottom: 3px; }
+.msg.client .lbl { color: var(--amber); }
+.msg.server .lbl { color: var(--teal); }
+.msg.event .lbl { color: var(--lav); }
+.msg .caption { font-family: -apple-system, sans-serif; font-size: 14px; }
+.msg pre { display: none; margin: 8px 0 0; font-size: 12px; background: rgba(255,255,255,0.6);
+  padding: 8px; border-radius: 3px; overflow-x: auto; white-space: pre-wrap; }
+.msg.expanded pre { display: block; }
+.msg .hint { font-family: -apple-system, sans-serif; font-size: 11px; color: var(--sub); margin-top: 4px; }
+
+.side { border-left: 2px solid var(--ink); padding: 24px 20px; font-family: -apple-system, sans-serif; }
+.side h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 12px; }
+details { border: 1px solid var(--line); border-radius: 4px; margin-bottom: 8px; background: #fff; }
+summary { padding: 10px 12px; font-size: 13px; font-weight: 600; cursor: pointer; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.panel { padding: 10px 12px; font-size: 12.5px; line-height: 1.6; }
+.panel table { width: 100%; border-collapse: collapse; }
+.panel td, .panel th { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.panel th { font-size: 11px; text-transform: uppercase; color: var(--sub); }
+.tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 11px; font-weight: 700; }
+.tag.amber { background: var(--amber-bg); color: var(--amber); }
+.tag.teal { background: var(--teal-bg); color: var(--teal); }
+code { background: #f0f0ee; padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+a { color: var(--teal); }

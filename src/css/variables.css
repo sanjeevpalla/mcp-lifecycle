@@ -1,0 +1,37 @@
+/* Shared design tokens and base reset used across every page. */
+:root {
+  --accent: #d97a4d;
+  --accent-dark: #b5651d;
+  --cream: #fdf6e8;
+  --cream-bd: #e8c9a0;
+  --blue-bg: #eaf2fb;
+  --blue-bd: #b9d4f0;
+  --blue: #2f6db5;
+  --teal: #0f6b64;
+  --teal-bg: #e8f5f3;
+  --teal-bd: #a9d8d1;
+  --amber: #b5651d;
+  --amber-bg: #fdf3e7;
+  --amber-bd: #e8c9a0;
+  --lav: #5b4b8a;
+  --lav-bg: #f1eefa;
+  --lav-bd: #cfc3e8;
+  --sidebar: #1a1a1d;
+  --sidebar-sub: #8b8b93;
+  --sidebar-hover: #26262a;
+  --ink: #1f2328;
+  --sub: #6b7280;
+  --line: #e6e6e3;
+  --bg: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.mono { font-family: 'SF Mono', Consolas, Menlo, monospace; }
